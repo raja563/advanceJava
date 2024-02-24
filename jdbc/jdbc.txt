@@ -1,0 +1,51 @@
+jdbc stands for java Database connectivity . it is a standard 
+API provided by Oracle for java application to intract 
+with different set od database.
+
+how to work (architecture of jdbc)
+java application -> jdbc api -> sql driver <=> sql
+
+
+classpath 
+C:\mysql-connector-j-8.1.0.jar
+
+
+1. load the driver
+    Class.forName("com.mysql.jdbc.Driver");
+
+2. Create a connection :
+
+    url =jdbc:mysql//localhost:3306/dbname;
+    user=root;
+    password=root;
+
+    Connection con= DriverManager.getConnection("url","username","password");
+
+
+3. Create query, Statement, PreparedStatement,CallableStatement
+eg.
+    String q="select * from student";
+
+    Statement smtp=con.createStatement();
+    stmt.executeQuery(q);
+    
+4. process the data:
+    while(set.next()){
+        int id=set.getInt("SudentID");
+        Sting name=set.getString("Studentname");
+        System.out.println(id);
+        System.out.println(name);
+        
+    }
+    
+5. close the connection:
+    con.close();
+
+
+sql cmd for checking data in the database 
+
+    1.  show databases;
+    2.  use database_name;
+    3.  show tables;
+    4.  desc table_name;
+
